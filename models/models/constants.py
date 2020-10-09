@@ -66,3 +66,9 @@ VOTATION_RESULT = (
     (4, _('Sin Quorum')),
     (9, _('Sin Resultado')),
 )
+
+ATTENDANCE_KIND = (
+    (0, _('No Asiste')),
+    (1, _('Asiste')),
+    (2, _('Justificado')),
+)

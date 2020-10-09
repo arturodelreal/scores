@@ -13,4 +13,5 @@ METHODS = {
     'sessions_by_legislature': 'retornarSesionesXLegislatura',
     'votations_by_year': 'retornarVotacionesXAnno',
     'votation_detail': 'retornarVotacionDetalle',
+    'attendance_by_session': 'retornarSesionAsistencia',
 }

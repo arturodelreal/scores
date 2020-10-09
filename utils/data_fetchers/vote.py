@@ -1,6 +1,6 @@
 from zeep import Client
 
-from models.models import DeputyVotation, DeputyVote
+from models.models import DeputyVotation, DeputyVote, Deputy
 from utils.data_fetchers.constants import METHODS
 from utils.data_fetchers.utils import get_client
 
@@ -45,3 +45,20 @@ def fill_votes(votations_filter: None):
             __add_votes_for_votation(votation, client)
         except AttributeError:
             print(votation.id)
+
+
+def fill_not_voted_with_defaults():
+    new_votes = []
+    for votation in DeputyVotation.objects.iterator():
+        no_voted_deputies = Deputy.objects.exclude(
+            votes__votation_id=votation.id
+        )
+        for deputy in no_voted_deputies.iterator():
+            new_votes.append(
+                DeputyVote(
+                    deputy=deputy,
+                    votation=votation,
+                    resolution=None,
+                )
+            )
+    DeputyVote.objects.bulk_create(new_votes, 200)

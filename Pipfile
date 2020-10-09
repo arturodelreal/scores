@@ -13,6 +13,9 @@ requests = "~=2.24"
 result = '==0.5.0'
 zeep = "*"
 Pillow = "*"
+sklearn = "*"
+numpy = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

@@ -22,6 +22,7 @@ class Deputy(models.Model):
         PoliticalGroup,
         models.CASCADE,
         null=True,
+        related_name='deputies',
     )
 
     image = models.ImageField(null=True)

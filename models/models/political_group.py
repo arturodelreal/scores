@@ -16,6 +16,5 @@ class PoliticalGroup(models.Model):
 
     color = models.CharField(
         max_length=32,
-        choices=COLORS,
         null=True
     )
